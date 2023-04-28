@@ -73,10 +73,11 @@ const parseQuery = async (period, zone) => {
 const getPrayerTimes = async (period = Period.Today, zone) => {
   await parseQuery(period, zone)
   const url = `https://www.e-solat.gov.my/index.php?r=esolatApi/takwimsolat&period=${period}&zone=${zone}`;
-  await axios.post(url,
+  const res = await axios.post(url,
     { datestart: 'YYYY-MM-DD', dateend: 'YYYY-MM-DD' }
-  ).then(response => console.log('--------response', response.data))
+  ).then(response => response.data)
     .catch(error => console.error(error));
+  return res
 }
 
 module.exports = {
