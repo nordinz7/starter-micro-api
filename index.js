@@ -12,7 +12,7 @@ bot.help((ctx) => ctx.reply('Send me a sticker'));
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 
 bot.command('hariini', async (ctx) => {
-  const waktu = await getPrayerTimes("today", "JHR03")
+  const waktu = await getPrayerTimes("today", "SGR03")
   let str = ''
   waktu.prayerTime.map((time) => {
     Object.entries(time).forEach(([key, value]) => {
